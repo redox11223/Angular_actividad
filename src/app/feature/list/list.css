@@ -1,3 +1,77 @@
 .price{
   color: green;
 }
+
+/* Cards layout */
+.electronics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #feffff;
+  overflow: hidden;
+}
+
+.card-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 160px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.card-price {
+  font-weight: 600;
+  color: #1a73e8;
+  margin: 0;
+}
+
+.card-badge {
+  margin-top: auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+.badge.sold { background:#f8d7da; color:#842029; }
+.badge.offer { background:#d1e7dd; color:#0f5132; }
+
+@media (max-width: 480px) {
+  .card-image img { height: 120px; }
+}
