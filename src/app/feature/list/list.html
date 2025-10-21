@@ -1,0 +1,13 @@
+<ul>
+  @for (producto of productos; track producto.id) {
+  <li>
+    <span [ngClass]="{ price: producto.precio > 100 }"> {{ producto.nombre }}</span>
+    S/.{{ producto.precio }}
+    @if (producto.agotado) {
+    <span [ngStyle]="{ color: 'red' }">Agotado</span>
+    }@else {
+    <span>En oferta</span>
+    }
+  </li>
+  }
+</ul>
