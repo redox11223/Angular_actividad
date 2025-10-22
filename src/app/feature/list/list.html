@@ -23,16 +23,18 @@
     <div class="card-body">
       <h3 class="card-title">{{ producto.nombre }}</h3>
       @if (producto.estado=="En Oferta") {
-      <span class="card-price">S/.{{ (producto.precio * 0.75).toFixed(2) }}</span>
+      <span class="card-price">S/.{{ calcularPrecioConDescuento(producto).toFixed(2) }}</span>
       }
       <p class="card-price" [class.card-old-price]="producto.estado === 'En Oferta'">
         S/.{{ producto.precio.toFixed(2) }}
       </p>
       <div class="card-badge">
         @if (producto.estado=="En Oferta") {
-        <span class="badge offer">{{ producto.estado }}</span>
+        <span class="badge offer">{{ producto.estado }} - {{ (obtenerDescuentoCategoria(producto.categoria) * 100).toFixed(0) }}% de dscto.</span>
         }
+
       </div>
+
     </div>
   </article>
   } }
