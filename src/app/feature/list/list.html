@@ -15,23 +15,25 @@
 -->
 
 <section class="electronics">
-  @for (producto of productos; track producto.id) {
-    <article class="card">
-      <div class="card-image">
-        <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+  @for (producto of productos; track producto.id) { @if (producto.estado!=="Agotado") {
+  <article class="card">
+    <div class="card-image">
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">{{ producto.nombre }}</h3>
+      @if (producto.estado=="En Oferta") {
+      <span class="card-price">S/.{{ (producto.precio * 0.75).toFixed(2) }}</span>
+      }
+      <p class="card-price" [class.card-old-price]="producto.estado === 'En Oferta'">
+        S/.{{ producto.precio.toFixed(2) }}
+      </p>
+      <div class="card-badge">
+        @if (producto.estado=="En Oferta") {
+        <span class="badge offer">{{ producto.estado }}</span>
+        }
       </div>
-      <div class="card-body">
-        <h3 class="card-title">{{ producto.nombre }}</h3>
-        <p class="card-price">S/.{{ producto.precio }}</p>
-        <div class="card-badge">
-          @if (producto.agotado) {
-            <span class="badge sold">Agotado</span>
-          }@else {
-            <span class="badge offer">En oferta</span>
-          }
-        </div>
-      </div>
-    </article>
-  }
-
+    </div>
+  </article>
+  } }
 </section>

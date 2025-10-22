@@ -59,6 +59,12 @@
   margin: 0;
 }
 
+.card-old-price {
+  color: #777; /* gris suave */
+  text-decoration: line-through; /* raya encima del texto */
+  opacity: 0.8;
+}
+
 .card-badge {
   margin-top: auto;
 }
